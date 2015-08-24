@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @feed.user %>
+</p>
+
+<p>
+  <strong>Text ita:</strong>
+  <%= @feed.text_ita %>
+</p>
+
+<p>
+  <strong>Text eng:</strong>
+  <%= @feed.text_eng %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @feed.image %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @feed.date %>
+</p>
+
+<p>
+  <strong>Is ita published:</strong>
+  <%= @feed.is_ita_published %>
+</p>
+
+<p>
+  <strong>Is eng published:</strong>
+  <%= @feed.is_eng_published %>
+</p>
+
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>
