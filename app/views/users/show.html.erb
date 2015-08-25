@@ -1,0 +1,15 @@
+<% content_for :head do %>
+	<title> Portal </title
+<% end %>
+
+<% content_for :body do %>
+<p id="notice"><%= notice %></p>
+<div>
+	<strong>email:</strong>
+	<%= @user.email %>
+	<strong>permissions:</strong>
+	<%= @user.permissions %>
+</div>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+<% end %>

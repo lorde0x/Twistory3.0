@@ -1,0 +1,12 @@
+<% content_for :head do %>
+	<title> Portal </title>
+<% end %>
+
+<% content_for :body do %>
+<h1>Editing User</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>
+<% end %>

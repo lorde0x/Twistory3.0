@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 	get 'home/index' => 'home#index'
 	root to: 'home#index'
 	resources :feeds
+	resources :users, path: '/portal'
 	
 	devise_for :admins
 
