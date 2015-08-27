@@ -7,6 +7,9 @@ gem 'rails', '4.2.2'
 # Use mysql2 as the database for Active Record
 gem 'mysql2'
 
+# Store my database in a safe place
+gem 'fog'
+
 #For Facebook
 gem "koala", "~> 2.0"
 
@@ -14,7 +17,7 @@ gem "koala", "~> 2.0"
 gem 'twurl' 
 
 # For internalization
-gem 'rails-i18n', '~> 4.0.0'
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 4.x
 
 # This gem will connect to ours twitter account
 gem 'twitter'
