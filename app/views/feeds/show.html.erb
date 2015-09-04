@@ -1,6 +1,9 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :head do %>
+	<title> Show </title>
+<% end %>
 
-<p>
+<%= content_for :body do %>
+
   <strong>User:</strong>
   <%= @feed.user %>
 </p>
@@ -34,6 +37,11 @@
   <strong>Is eng published:</strong>
   <%= @feed.is_eng_published %>
 </p>
+<p>
+  <strong>publishing:</strong>
+  <%= @feed.publishing %>
+</p>
 
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %>
+<% end %>

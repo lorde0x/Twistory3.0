@@ -12,13 +12,13 @@
 						<div>
 							<ul>
 								<% if !@LastFeeds[0].blank? %>
-								<li>"<%= @LastFeeds[0].feed_text %>"<% if user = User.find_by(id: params[@LastFeeds[0].user_id]) %><%= user.user_name %><% end %>(<%= @LastFeeds[0].date.strftime('%d/%m/%Y') %>)</li>
+								<li>"<%= @LastFeeds[0].text_ita %>"<% if user = User.find_by(id: params[@LastFeeds[0].user_id]) %><%= user.user_name %><% end %>(<%= @LastFeeds[0].date.strftime('%d/%m/%Y') %>)</li>
 							<% end %>
 							<% if !@LastFeeds[1].blank? %>
-								<li>"<%= @LastFeeds[1].feed_text %>"<% if user = User.find_by(id: params[@LastFeeds[1].user_id]) %><%= user.user_name %><% end %>(<%= @LastFeeds[1].date.strftime('%d/%m/%Y') %>)</li>
+								<li>"<%= @LastFeeds[1].text_ita %>"<% if user = User.find_by(id: params[@LastFeeds[1].user_id]) %><%= user.user_name %><% end %>(<%= @LastFeeds[1].date.strftime('%d/%m/%Y') %>)</li>
 							<% end %>
 							<% if !@LastFeeds[2].blank? %>
-								<li>"<%= @LastFeeds[2].feed_text %>"<% if user = User.find_by(id: params[@LastFeeds[2].user_id]) %><%= user.user_name %><% end %>(<%= @LastFeeds[2].date.strftime('%d/%m/%Y') %>)</li>
+								<li>"<%= @LastFeeds[2].text_ita %>"<% if user = User.find_by(id: params[@LastFeeds[2].user_id]) %><%= user.user_name %><% end %>(<%= @LastFeeds[2].date.strftime('%d/%m/%Y') %>)</li>
 							<% end %>
 							</ul>
 						

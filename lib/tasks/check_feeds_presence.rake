@@ -8,7 +8,7 @@ namespace :check_feeds_presence do
 	feeds = Feed.where("date < ? and date > ?", second_time.strftime('%Y-%m-%d %H:%M:%S'), time.strftime('%Y-%m-%d %H:%M:%S'))
 	
 		if feeds.count == 0
-			UserMailer.trigger_error_email("Non ci sono feeds da pubblicare in data: " + time.strftime('%d-%m-%Y').to_s).deliver
+			UserMailer.trigger_error_email("Non ci sono feeds da pubblicare in data: " + time.strftime('%d-%m-%Y').to_s).deliver_now
 		end
 		
 	end
