@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 	resources :users, path: '/portal'
 	
 	devise_for :admins
-
+	
 	devise_scope :admin do
 		authenticated :admin do
 			get 'admins/sign_out' => 'devise/sessions#destroy'

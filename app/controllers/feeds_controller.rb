@@ -1,6 +1,6 @@
 class FeedsController < ApplicationController
-	before_action :authenticate_user!
 	before_action :set_feed, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!
 
 	# GET /feeds
 	# GET /feeds.json
@@ -28,8 +28,10 @@ class FeedsController < ApplicationController
 		@feed = Feed.new(feed_params)
 			respond_to do |format|
 				if current_user.permissions == 100
-					@feed.publishing = true
+					@feed.update_attributes(:publishing => false)
 				end
+				
+				@feed.user_id = current_user.id
 				
 				if @feed.save
 					format.html { redirect_to @feed, notice: 'Feed was successfully created.' }

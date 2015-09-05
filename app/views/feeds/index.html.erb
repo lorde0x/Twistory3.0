@@ -9,7 +9,7 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>User_id</th>
       <th>Text ita</th>
       <th>Text eng</th>
       <th>Image</th>
@@ -24,7 +24,7 @@
   <tbody>
     <% @feeds.each do |feed| %>
       <tr>
-        <td><%= feed.user %></td>
+        <td><%= feed.user_id %></td>
         <td><%= feed.text_ita %></td>
         <td><%= feed.text_eng %></td>
         <td><%= feed.image %></td>
