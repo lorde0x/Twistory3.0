@@ -1,9 +1,8 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :head do %>
+	<title> Show </title>
+<% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @feed.user %>
-</p>
+<%= content_for :body do %>
 
 <p>
   <strong>Text ita:</strong>
@@ -17,7 +16,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @feed.image %>
+  <%= image_tag(@feed.image) %>
 </p>
 
 <p>
@@ -25,15 +24,6 @@
   <%= @feed.date %>
 </p>
 
-<p>
-  <strong>Is ita published:</strong>
-  <%= @feed.is_ita_published %>
-</p>
-
-<p>
-  <strong>Is eng published:</strong>
-  <%= @feed.is_eng_published %>
-</p>
-
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %>
+<% end %>

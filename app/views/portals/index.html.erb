@@ -1,0 +1,43 @@
+<%= content_for :head do %>
+	<title> Main page </title>
+<% end %>
+<%= content_for :body do %>
+
+<h1>Listing Feeds</h1>
+<p id='notice'> <%= @error %> </p>
+<p id='notice'> <%= notice %> </p>
+<table>
+  <thead>
+    <tr>
+      <th>User_id</th>
+      <th>Text ita</th>
+      <th>Text eng</th>
+      <th>Image</th>
+      <th>Date</th>
+      <th>Is ita published</th>
+      <th>Is eng published</th>
+      <th>publishing</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @portals.each do |portal| %>
+      <tr>
+        <td><%= portal.user_id %></td>
+        <td><%= portal.text_ita %></td>
+        <td><%= portal.text_eng %></td>
+        <td><%= portal.image %></td>
+        <td><%= portal.date %></td>
+        <td><%= portal.is_ita_published %></td>
+        <td><%= portal.is_eng_published %></td>
+        <td><%= portal.publishing %></td>
+        <td><%= link_to 'Edit', edit_portal_path(portal) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'User settings', users_path %>
+<% end %>

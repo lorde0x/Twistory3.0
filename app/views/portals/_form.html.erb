@@ -1,0 +1,40 @@
+<%= content_for :head do %>
+<% end %>
+
+<%= content_for :body do %>
+	<%= form_for @portal, :as => :portal, :url => { :action => "update" } do |f| %>
+	  <% if @portal.errors.any? %>
+		<div id="error_explanation">
+		  <h2><%= pluralize(@portal.errors.count, "error") %> prohibited this feed from being saved:</h2>
+		  <ul>
+		  <% @portal.errors.full_messages.each do |message| %>
+		    <li><%= message %></li>
+		  <% end %>
+		  </ul>
+		</div>
+	  <% end %>
+
+	  <div class="field">
+		<%= f.label :text_ita %><br>
+		<%= f.text_field :text_ita %>
+	  </div>
+	  <div class="field">
+		<%= f.label :text_eng %><br>
+		<%= f.text_field :text_eng %>
+	  </div>
+	  	  <div class="field">
+		<%= f.label :publishing %><br>
+		<%= f.check_box :publishing %>
+	  </div>
+	  <div class="field">
+		<%= f.label :date %><br>
+		<%= f.datetime_select :date %>
+	  </div>
+	  <div class="field">
+		<%= f.file_field :feed_image %>
+	  </div>
+	  <div class="actions">
+		<%= f.submit %>
+	  </div>
+	<% end %>
+<% end %>

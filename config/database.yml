@@ -1,4 +1,3 @@
-
 default: &default
   adapter: mysql2
   pool: 5
@@ -9,6 +8,7 @@ default: &default
 
 development:
   <<: *default
+  database: Twistory3
    
 
 # Warning: The database defined as "test" will be erased and

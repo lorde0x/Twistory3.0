@@ -1,0 +1,47 @@
+<%= content_for :head do %>
+	<title> Show </title>
+<% end %>
+
+<%= content_for :body do %>
+
+  <strong>User_id:</strong>
+  <%= @portal.user_id %>
+</p>
+
+<p>
+  <strong>Text ita:</strong>
+  <%= @portal.text_ita %>
+</p>
+
+<p>
+  <strong>Text eng:</strong>
+  <%= @portal.text_eng %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @portal.image %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @portal.date %>
+</p>
+
+<p>
+  <strong>Is ita published:</strong>
+  <%= @portal.is_ita_published %>
+</p>
+
+<p>
+  <strong>Is eng published:</strong>
+  <%= @portal.is_eng_published %>
+</p>
+<p>
+  <strong>publishing:</strong>
+  <%= @portal.publishing %>
+</p>
+
+<%= link_to 'Edit', edit_portal_path(@portal) %> |
+<%= link_to 'Back', portals_path %>
+<% end %>
