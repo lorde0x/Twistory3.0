@@ -17,18 +17,18 @@ class PortalsController < ApplicationController
 	end
 
 	def create
-		@portal = Feed.new(feed_params)
-			respond_to do |format|	
-				@portal.user_id = 100000000
-				if @portal.save
-					format.html { redirect_to @portal, notice: 'Feed was successfully created.' }
-					format.json { render :show, status: :created, location: @portal }
-					flash[:notice] = "Il feed è stato creato"
-				else
-				format.html { render :new }
-				format.json { render json: @portal.errors, status: :unprocessable_entity }
-				end
-			end
+		# @portal = Feed.new(feed_params)
+			# respond_to do |format|	
+				# @portal.user_id = 100000000
+				# if @portal.save
+					# format.html { redirect_to @portal, notice: 'Feed was successfully created.' }
+					# format.json { render :show, status: :created, location: @portal }
+					# flash[:notice] = "Il feed è stato creato"
+				# else
+				# format.html { render :new }
+				# format.json { render json: @portal.errors, status: :unprocessable_entity }
+				# end
+			# end
 	end
 
 	def update
