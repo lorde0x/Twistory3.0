@@ -1,0 +1,15 @@
+<%= content_for :head do %>
+	<title> Edit </title>
+<% end %>
+
+<%= content_for :body do %>
+<h1> Editing Users </h1>
+<%= render 'form' %>
+
+<p id='notice'> <%= @error %> </p>
+
+<%= link_to 'Show', @feed %> |
+<%= link_to 'Back', feeds_path %>
+
+<% end %>
+

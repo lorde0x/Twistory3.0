@@ -9,14 +9,10 @@
 <table>
   <thead>
     <tr>
-      <th>User_id</th>
       <th>Text ita</th>
       <th>Text eng</th>
       <th>Image</th>
       <th>Date</th>
-      <th>Is ita published</th>
-      <th>Is eng published</th>
-      <th>publishing</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,14 +20,10 @@
   <tbody>
     <% @feeds.each do |feed| %>
       <tr>
-        <td><%= feed.user_id %></td>
         <td><%= feed.text_ita %></td>
         <td><%= feed.text_eng %></td>
-        <td><%= feed.image %></td>
+        <td><%= image_tag(feed.image) %></td>
         <td><%= feed.date %></td>
-        <td><%= feed.is_ita_published %></td>
-        <td><%= feed.is_eng_published %></td>
-        <td><%= feed.publishing %></td>
         <td><%= link_to 'Show', feed %></td>
         <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
         <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>

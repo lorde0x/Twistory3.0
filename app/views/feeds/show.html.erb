@@ -4,10 +4,6 @@
 
 <%= content_for :body do %>
 
-  <strong>User_id:</strong>
-  <%= @feed.user_id %>
-</p>
-
 <p>
   <strong>Text ita:</strong>
   <%= @feed.text_ita %>
@@ -20,26 +16,12 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @feed.image %>
+  <%= image_tag(@feed.image) %>
 </p>
 
 <p>
   <strong>Date:</strong>
   <%= @feed.date %>
-</p>
-
-<p>
-  <strong>Is ita published:</strong>
-  <%= @feed.is_ita_published %>
-</p>
-
-<p>
-  <strong>Is eng published:</strong>
-  <%= @feed.is_eng_published %>
-</p>
-<p>
-  <strong>publishing:</strong>
-  <%= @feed.publishing %>
 </p>
 
 <%= link_to 'Edit', edit_feed_path(@feed) %> |

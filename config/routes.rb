@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-	get 'home/index' => 'home#index'
-	root to: 'home#index'
+	get 'home/index' => 'feeds#home'
+	root to: 'feeds#home'
 	resources :feeds
 	resources :users, path: '/portal'
+	resources :portals, path: '/#portal'
 	
 	devise_for :admins
 	
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
 		unauthenticated do
 			get 'users/sign_in' => 'devise/sessions#new'
 			get '/users' => 'devise/registrations#new'
-			root to: 'home#index', as: :unauthenticated_root
+			root to: 'feeds#home', as: :unauthenticated_root
 		end
 	end
 	# The priority is based upon order of creation: first created -> highest priority.
