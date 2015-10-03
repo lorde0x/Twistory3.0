@@ -1,12 +1,3 @@
-GIT
-  remote: git://github.com/svenfuchs/rails-i18n.git
-  revision: 9aecd8516a3366037f8ffb6c26e43eb74c3c43b4
-  branch: master
-  specs:
-    rails-i18n (4.0.4)
-      i18n (~> 0.6)
-      railties (~> 4.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -55,9 +46,15 @@ GEM
       addressable (>= 2.3.1)
       extlib (>= 0.9.15)
       multi_json (>= 1.0.0)
+    autoprefixer-rails (5.2.1.2)
+      execjs
+      json
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.5.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.3.0)
     buftok (0.2.0)
     builder (3.2.2)
     byebug (6.0.2)
@@ -200,6 +197,7 @@ GEM
       uuidtools (>= 2.1.0)
     http (0.6.4)
       http_parser.rb (~> 0.6.0)
+    http_accept_language (2.0.5)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     inflecto (0.0.2)
@@ -332,18 +330,20 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake
+  autoprefixer-rails
+  bootstrap-sass (~> 3.3.5)
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
   devise
   fog
   google-api-client
+  http_accept_language
   jbuilder (~> 2.0)
   jquery-rails
   koala (~> 2.0)
   mysql2
   rails (= 4.2.2)
-  rails-i18n!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

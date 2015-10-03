@@ -16,8 +16,13 @@ gem "koala", "~> 2.0"
 # For twitter
 gem 'twurl' 
 
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.3.5'
+
+gem 'autoprefixer-rails'
+
 # For internalization
-gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 4.x
+gem 'http_accept_language'
 
 # This gem will connect to ours twitter account
 gem 'twitter'

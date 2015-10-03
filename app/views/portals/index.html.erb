@@ -9,7 +9,7 @@
 <table>
   <thead>
     <tr>
-      <th>User_id</th>
+      <th>User_email</th>
       <th>Text ita</th>
       <th>Text eng</th>
       <th>Image</th>
@@ -24,7 +24,7 @@
   <tbody>
     <% @portals.each do |portal| %>
       <tr>
-        <td><%= portal.user_id %></td>
+        <td><%= User.find(portal.user_id).email %></td>
         <td><%= portal.text_ita %></td>
         <td><%= portal.text_eng %></td>
         <td><%= portal.image %></td>
