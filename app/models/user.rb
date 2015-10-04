@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
 		:recoverable, :rememberable, :trackable, :validatable
 		
 	def send_new_registration_email
-		UserMailer.new_registration_email(self).deliver_now
+		UserMailer.new_registration_email(self).deliver_later
 	end
 end
