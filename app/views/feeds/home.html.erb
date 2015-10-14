@@ -58,6 +58,7 @@
 
 		<div class="row">
 			<div class="col-sm-4">
+				<% if user_signed_in? %>
 				<h3><%= User.find(Feed.all.reverse[0].user_id).name %> </h3>
 				<% if !@LastFeeds[0].blank? %>
 				<p>"<%= @LastFeeds[0].text_ita %>"<% if user = User.find_by(id: params[@LastFeeds[0].user_id]) %><%= user.user_name %><% end %>(<%= @LastFeeds[0].date.strftime('%d/%m/%Y') %>)</p>
@@ -73,6 +74,7 @@
 			<h3><%=User.find(Feed.all.reverse[2].user_id).name%></h3>        
 			<% if !@LastFeeds[2].blank? %>
 			<p>"<%= @LastFeeds[0].text_ita %>"<% if user = User.find_by(id: params[@LastFeeds[2].user_id]) %><%= user.user_name %><% end %>(<%= @LastFeeds[2].date.strftime('%d/%m/%Y') %>)</p>
+		<% end %>
 		<% end %>
 		</div>
 	</div>
