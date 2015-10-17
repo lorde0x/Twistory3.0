@@ -1,0 +1,52 @@
+	<%= form_for(@feed) do |f| %>
+  <% if @feed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
+      <ul>
+      <% @feed.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+		<div id="mainTextBoxContainer">
+			<table>
+				<tr>
+					<th colspan="2">
+					<%= f.text_area :text_ita, :class => "textBox", :onkeyup => 'textCounter(this, "charCounterIta");', :placeholder => "Scrivi qui il testo del tuo feed ..." %>
+					</th>
+				</tr>
+				
+				<tr>
+					<th id="charCounterIta" align="left" width="50%"></th>
+					<th id="charCounterEng" align="right" width="50%"></th>
+				</tr>
+				
+				<tr>
+					<th colspan="2">
+					<%= f.text_area :text_eng, :class => "textBox", :onkeyup => 'textCounter(this, "charCounterEng");', :placeholder => "Scrivi qui la versione inglese del feed ..." %>
+					</th>
+				</tr>
+				
+				<tr>
+					<th colspan="2">Data e ora di pubblicazione:</th>
+				</tr>
+				
+				<tr>
+					<th colspan="2"><%= f.datetime_select :date, :minute_step => 15 %></th>
+				</tr>
+				
+				<tr>
+					<th colspan="2">Inserisci un'immagine:</th>
+				</tr>
+				
+				<tr>
+					<th colspan="2"><%= f.file_field :image %></th>
+				</tr>
+				
+				<tr>
+					<th colspan="2"><input type="submit" value="Conferma" class="button"/></th>
+				</tr>
+			</table> 
+		</div>
+	<% end %>

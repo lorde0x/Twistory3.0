@@ -4,7 +4,23 @@
 
 <%= content_for :body do %>
 <h1> Editing Users </h1>
-<%= render 'form' %>
+<div class="homeTitle">
+	Modifica il tuo feed
+</div>
+
+<% if notice %>
+<p align="center"><%= notice %></p>
+<% end %>
+<% if alert %>
+<p align="center"><%= alert %></p>
+<% end %>
+
+<% if @feed.image.present? %>
+<div id="<%= @feed.id %>" onclick="Expand_Image(<%= @feed.id %>)" class="feedImage">
+<%= image_tag(@feed.image_url) %>
+</div>
+<% end %>
+<%= render 'doubleForm' %>
 
 <p id='notice'> <%= @error %> </p>
 
