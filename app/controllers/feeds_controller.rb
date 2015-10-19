@@ -40,7 +40,7 @@ class FeedsController < ApplicationController
 						flash[:notice] = 'Entrambi i feeds sono stati aggiornati con successo'
 					end
 				end
-				@feed.text_eng = feed_text_english
+				@feed.text_eng = feed_text_english.gsub("\xE2\x80\x8B", "")
 		else
 			@feed.text_eng = 'Hi there! Write here the english traslation'
 		end
