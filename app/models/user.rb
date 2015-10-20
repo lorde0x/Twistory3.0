@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable, :confirmable,
 		:recoverable, :rememberable, :trackable, :validatable
+
+	validates :name, presence: true
 		
 	def send_new_registration_email
 		UserMailer.new_registration_email(self).deliver_later

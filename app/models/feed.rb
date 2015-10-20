@@ -1,12 +1,19 @@
 class Feed < ActiveRecord::Base
 	belongs_to :user
   	mount_uploader :image, ImageUploader
-
+  	after_validation :change_publishing
 	validate :checking_feed_text
 	validate :checking_for_date
 	validate :checking_for_image_size
 
 	private
+
+	def change_publishing
+		if User.find(self[:user_id]).permissions == 100
+			publishing = false
+			UserMailer.new_feed(self).deliver_later
+		end	
+	end
 
 	def checking_for_image_size
 		if image.size > 300.kilobytes

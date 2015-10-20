@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
 		if Rails.env.production?
 			mail(:to => 'info@ragazzidel99.it', :subject => "Un nuovo utente si e' iscritto.")
 		else
-			mail(:to => 'lorenzo22@hotmail.it', :subject => "Un nuovo utente si e' iscritto.")
+			mail(:to => 'twittwar95@gmail.com', :subject => "Un nuovo utente si e' iscritto.")
 		end
 	end
 
@@ -17,6 +17,15 @@ class UserMailer < ApplicationMailer
 			else
 				mail(:to => 'twittwar95@gmail.com', :subject => @error_message)
 			end
+	end
+
+	def new_feed(feed)
+		@feed = feed
+		if Rails.env.production?
+			mail(:to => 'info@ragazzidel99.it', :subject => "New Feed")
+		else
+			mail(:to => 'lorenzo.camaione@gmail.com', :subject => "New_Feed")
+		end
 	end
 	
 end
