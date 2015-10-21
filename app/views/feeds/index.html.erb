@@ -1,38 +1,38 @@
 <%= content_for :head do %>
 	<title> Main page </title>
 <% end %>
+
 <%= content_for :body do %>
+  <div class="background">
+    <h1>I nostri feed</h1>
+    <p id='notice'> <%= notice %> </p>
 
-<h1>Listing Feeds</h1>
-<p id='notice'> <%= @error %> </p>
-<p id='notice'> <%= notice %> </p>
-<table>
-  <thead>
-    <tr>
-      <th>Text ita</th>
-      <th>Text eng</th>
-      <th>Image</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <%= link_to 'New Feed', new_feed_path, :class => 'new_feed' %>
+    <table>
+      <thead>
+        <tr>
+          <th class="design">Testo</th>
+          <th class="design">Text</th>
+          <th class="design">Image</th>
+          <th class="design">Date</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @feeds.each do |feed| %>
-      <tr>
-        <td><%= feed.text_ita %></td>
-        <td><%= feed.text_eng %></td>
-        <td><%= image_tag(feed.image) %></td>
-        <td><%= feed.date %></td>
-        <td><%= link_to 'Show', feed %></td>
-        <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
-        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @feeds.each do |feed| %>
+          <tr>
+            <td class="feed"><%= feed.text_ita %></td>
+            <td class="feed"><%= feed.text_eng %></td>
+            <td class="feed"><%= image_tag(feed.image) %></td>
+            <td class="feed"><%= feed.date.strftime('%d/%m/%Y %H:%M') %></td>
+            <td class="buttons"><%= link_to 'Edit', edit_feed_path(feed) %></td>
+            <td class="buttons"><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+    <br>
 
-<br>
-
-<%= link_to 'New Feed', new_feed_path %>
 <% end %>

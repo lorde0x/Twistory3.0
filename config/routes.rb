@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'home/index'
-
 	get 'home/index' => 'feeds#home'
 	root to: 'feeds#home'
 	resources :feeds

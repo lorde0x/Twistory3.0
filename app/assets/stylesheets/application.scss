@@ -12,6 +12,8 @@
  *
  *= require_ tree .
  *= require_self
+ *= require custom
+ *= require login
  */
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables";
 @import "bootstrap-sprockets";

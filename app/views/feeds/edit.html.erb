@@ -3,17 +3,7 @@
 <% end %>
 
 <%= content_for :body do %>
-	<h1> Editing Users </h1>
-	<div class="homeTitle">
-		Modifica il tuo feed
-	</div>
-
-	<% if notice %>
-		<p align="center"><%= notice %></p>
-	<% end %>
-	<% if alert %>
-		<p align="center"><%= alert %></p>
-	<% end %>
+	<h1> Modifica il tuo feed </h1>
 
 	<% if @feed.image.present? %>
 		<div id="<%= @feed.id %>" onclick="Expand_Image(<%= @feed.id %>)" class="feedImage">

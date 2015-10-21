@@ -1,7 +1,7 @@
 class Feed < ActiveRecord::Base
 	belongs_to :user
   	mount_uploader :image, ImageUploader
-  	after_validation :change_publishing
+  	after_save :change_publishing
 	validate :checking_feed_text
 	validate :checking_for_date
 	validate :checking_for_image_size
