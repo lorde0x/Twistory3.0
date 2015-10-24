@@ -1,5 +1,4 @@
 <%= content_for :head do %>
-	<title> Edit </title>
 <% end %>
 
 <%= content_for :body do %>
@@ -14,8 +13,7 @@
 	<%= render 'doubleForm' %>
 
 	<p id='notice'> <%= @error %> </p>
-
-	<%= link_to 'Show', @feed %> |
+ |
 	<%= link_to 'Back', feeds_path %>
 
 <% end %>

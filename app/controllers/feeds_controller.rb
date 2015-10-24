@@ -46,9 +46,8 @@ class FeedsController < ApplicationController
 		end
 			respond_to do |format|			
 				if @feed.save
-					format.html { render :edit, notice: 'Feed was successfully created.' }
+					format.html { render :edit, notice: 'Il feed è stato creato!' }
 					format.json { render :show, status: :created, location: @feed }
-					flash[:notice] = "Il feed è stato creato"
 				else
 				format.html { render :new }
 				format.json { render json: @feed.errors, status: :unprocessable_entity }
@@ -58,40 +57,35 @@ class FeedsController < ApplicationController
 
 	def update
 		respond_to do |format|
-			if @feed.user_id == current_user.id
-				if @feed.update(feed_params)
-						if @feed.text_eng.blank?
-							flash[:notice] = 'Il feed Italiano è stato aggiornato con successo'
-						else
-							if @feed.image.blank?
-								if @feed.text_eng.size > 124
-									@feed.text_eng = @feed.feed_text_english.slice(0, 121) + '...'
-									flash[:notice] = 'Il feed inglese è stato abbreviato perchè superava il limite di caratteri'
-								end
-							elsif @feed.text_eng.size > 101
-								@feed.feed_text_english = @feed.feed_text_english.slice(0, 98) + '...'
+			if @feed.user_id == current_user.id && @feed.update(feed_params)
+					if @feed.text_eng.blank?
+						flash[:notice] = 'Il feed Italiano è stato aggiornato con successo'
+					else
+						if @feed.image.blank?
+							if @feed.text_eng.size > 124
+								@feed.text_eng = @feed.feed_text_english.slice(0, 121) + '...'
 								flash[:notice] = 'Il feed inglese è stato abbreviato perchè superava il limite di caratteri'
-							else
-								flash[:notice] = 'Entrambi i feeds sono stati aggiornati con successo'
 							end
+						elsif @feed.text_eng.size > 101
+							@feed.feed_text_english = @feed.feed_text_english.slice(0, 98) + '...'
+							flash[:notice] = 'Il feed inglese è stato abbreviato perchè superava il limite di caratteri'
+						else
+							flash[:notice] = 'Entrambi i feeds sono stati aggiornati con successo'
 						end
-					format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
-					format.json { render :show, status: :ok, location: @feed }
-				else
-					format.html { redirect_to feeds_url }
-					format.json { render json: @feed.errors, status: :unprocessable_entity }
-					flash[:notice] = 'Non puoi modificare questo feed'
-				end
+					end
+				format.html { redirect_to feeds_path }
+				format.json { render :show, status: :ok, location: @feed }
 			else
-				flash[:notice] = "Non sei il possessore di questo feed e non detieni i privilegi per alterarlo!"
-				render "show"
+				format.html { redirect_to feeds_url }
+				format.json { render json: @feed.errors, status: :unprocessable_entity }
+				flash[:notice] = 'Non puoi modificare questo feed'
 			end
 		end
 	end
 
 	def destroy
 		respond_to do |format|
-			if @feed.destroy && @feed.user_id == current_user.id				
+			if (@feed.user_id == current_user.id) && @feed.destroy				
 				format.html { redirect_to feeds_url, notice: 'Feed was successfully destroyed.' }
 				format.json { head :no_content }
 			else

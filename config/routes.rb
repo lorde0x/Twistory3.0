@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 	get 'home/index' => 'feeds#home'
-	root to: 'feeds#home'
 	resources :feeds
 	resources :users, path: '/portal'
 	resources :portals, path: '/#portal'
@@ -23,7 +22,7 @@ Rails.application.routes.draw do
 		authenticated :user do
 			get '/users' => 'devise/registrations#edit'
 			get 'users/sign_out' => 'devise/sessions#destroy'
-			root to: 'feeds#index', as: :authenticated_root
+			root to: "feeds#index", as: :authenticated_root
 		end
 		unauthenticated do
 			get 'users/sign_in' => 'devise/sessions#new'

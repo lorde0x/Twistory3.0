@@ -1,12 +1,10 @@
 <%= content_for :head do %>
-	<title> Main page </title>
+	
 <% end %>
 
 <%= content_for :body do %>
   <div class="background">
     <h1>I nostri feed</h1>
-    <p id='notice'> <%= notice %> </p>
-
     <%= link_to 'New Feed', new_feed_path, :class => 'new_feed' %>
     <table>
       <thead>
