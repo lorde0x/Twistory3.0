@@ -3,30 +3,70 @@
 <% end %>	
 
 <% content_for :body do %>
-	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-	<div class="loginForm">
-		  <div class="field">
-			<%= f.label :email %><br />
-			<%= f.email_field :email, autofocus: true %>
-		  </div>
-
-		  <div class="field">
-			<%= f.label :password %><br />
-			<%= f.password_field :password, autocomplete: "off" %>
-		  </div>
-
-		  <% if devise_mapping.rememberable? -%>
-			<div class="field">
-			  <%= f.check_box :remember_me %>
-			  <%= f.label :remember_me %>
+	<!-- START bar -->
+			<div id="home" class="bar" style="font-size:10px;">
+				<div id="link">
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="<%= new_user_session_path %>" name="Hlink">Accedi</a></li>
+							<li><a href="<%= new_user_registration_path %>" name="Hlink">Iscriviti</a></li>
+							<li>
+								<%= link_to(home_index_path(language = %w(it))) do %>
+									<%= image_tag("IT_flag.png") %> 
+								<% end %>
+								<%= link_to(home_index_path(language = %w(en))) do %>
+									<%= image_tag("UK_flag.png") %>
+								<% end %>
+							</li>
+						</ul>
+				</div>
+				<span id="bar_text">
+					 La Grande Guerra
+				</span>
 			</div>
-		  <% end -%>
+		<!-- END bar -->
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+		<div class="form_bg"> 
+			<div class="form">  
+				<ul>  
+					<li>
+						<%= f.email_field :email, autofocus: "true", :class => "field", :placeholder => " Indirizzo e-mail" %>
+					</li>
+		
+					<li>
+						<%= f.password_field :password, :class => "field", :placeholder => " Password" , autocomplete: "off" %>
+					</li>
+				</ul>   
+				<%= f.submit "Accedi", :class => "button" %>
 
-		  <div class="actions">
-			<%= f.submit "Log in" %>
-		  </div>
-		<% end %>
-	</div>
-
-	<%= render "devise/shared/links" %>
+				<p align="left">
+					<% if devise_mapping.rememberable? %>
+						<%= f.check_box :remember_me, :style => "cursor: pointer;" %>
+						<b style="color:#698888;">
+							Rimani collegato
+						</b>
+					<% end %>
+				</p>
+			
+				<div style="color:#ED4F0C;font-size:1em;">
+					<% if notice %>
+						<%= notice %>
+					<% end %>
+					<% if alert %>
+						<%= alert %>
+					<% end %>
+				</div>
+			</div>
+		
+			<div class="right_text">
+				<div class="title">
+					Accedi
+				</div>
+				<p>Hai 
+					<%= link_to "dimenticato la password?", new_password_path(resource_name), :class => "forgotpsw"%> o non hai un account? 
+					<%= link_to "Iscriviti", new_user_registration_path, :class => "register"%>
+				</p>
+			</div>
+		</div>
+	<% end %>
 <% end %>	

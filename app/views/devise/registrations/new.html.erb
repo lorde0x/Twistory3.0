@@ -3,37 +3,67 @@
 <% end %>
 
 <% content_for :body do %>
+	<!-- START bar -->
+		<div id="home" class="bar" style="font-size:10px;">>
+			<div id="link">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="<%= new_user_session_path %>" name="Hlink">Accedi</a></li>
+						<li><a href="<%= new_user_registration_path %>" name="Hlink">Iscriviti</a></li>
+						<li>
+							<%= link_to(home_index_path(language = %w(it))) do %>
+								<%= image_tag("IT_flag.png") %> 
+							<% end %>
+							<%= link_to(home_index_path(language = %w(en))) do %>
+								<%= image_tag("UK_flag.png") %>
+							<% end %>
+						</li>
+					</ul>
+			</div>
+			<span id="bar_text">
+				 La Grande Guerra
+			</span>
+		</div>
+	<!-- END bar -->
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-	  <%= devise_error_messages! %>
-	<div class="loginForm">
-	  <div class="field"; style="width:100%";>
-		<%= f.label :email %><br />
-		<%= f.email_field :email, autofocus: true %>
-	  </div>
-	  
-	  <div class="field">
-		<%= f.label :name %><br />
-		<%= f.text_field :name%>
-	  </div>
-
-	  <div class="field">
-		<%= f.label :password %>
-		<% if @minimum_password_length %>
-		<em>(<%= @minimum_password_length %> characters minimum)</em>
-		<% end %><br />
-		<%= f.password_field :password, autocomplete: "off" %>
-	  </div>
-
-	  <div class="field">
-		<%= f.label :password_confirmation %><br />
-		<%= f.password_field :password_confirmation, autocomplete: "off" %>
-	  </div>
-
-	  <div class="actions">
-		<%= f.submit "Sign up" %>
-	  </div>
+		<div class="form_bg">
+			<div class="form">
+				<ul>  
+					<li>
+						<%= f.text_field :name, autofocus: "true", :class => "field", :placeholder => " Nome Pubblico" %>
+					</li>
+					<li>
+						<%= f.email_field :email, :class => "field", :placeholder => " Indirizzo e-mail"  %>
+					</li>
+					<li>
+						<%= f.password_field :password, :class => "field", :placeholder => " Password" , autocomplete: "off" %>
+					</li>
+					<li>
+						<%= f.password_field :password_confirmation, :class => "field", :placeholder => " Conferma password" , autocomplete: "off" %>
+					</li> 
+				</ul>
+				<%= f.submit "Procedi", :class => "button" %>
+				<%= devise_error_messages! %>
+				<% if notice %>
+					<%= notice %>
+				<% end %>
+				<% if alert %>
+					<%= alert %>
+				<% end %>
+			</div>
+	
+			<div class="right_text">
+				<div class="title">
+					Iscriviti
+				</div>
+				<p style="color:#696666;">
+					Ti invieremo una e-mail di conferma
+				</p>
+				<p style="color:#698888;">
+					Hai gia' un account? Allora
+					<%= link_to "effettua l'accesso", new_user_session_path, :class => "register"%>
+				</p>
+			</div>
+		</div>
 	<% end %>
-
-	<%= render "devise/shared/links" %>
-</div>
 <% end %>
