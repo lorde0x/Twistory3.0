@@ -79,16 +79,15 @@ Rails.application.configure do
 	
 	# Mailer configuration
 	config.action_mailer.smtp_settings =
-	{
-		:address => APP_CONFIG['email']['production']['address'],
-		:port => APP_CONFIG['email']['production']['port'],
-		:domain => APP_CONFIG['email']['production']['domain'],
-		:user_name => APP_CONFIG['email']['production']['user_name'],
-		:password => APP_CONFIG['email']['production']['password'],
-		:authentication => :plain,
-		:ssl => true,
-		:tls => true
-	}
+		{
+			:address => APP_CONFIG['email']['production']['address'],
+			:port => APP_CONFIG['email']['production']['port'],
+			:domain => APP_CONFIG['email']['production']['domain'],
+			:user_name => APP_CONFIG['email']['production']['user_name'],
+			:password => APP_CONFIG['email']['production']['password'],
+			:authentication => :plain,
+			:enable_starttls_auto => true
+		}
 
 	# ActionMailer Config
 	config.action_mailer.default_options = { :from => APP_CONFIG['email']['production']['user_name'] }
