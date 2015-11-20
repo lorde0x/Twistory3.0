@@ -5,6 +5,7 @@
 <%= content_for :body do %>
   <div class="background">
     <h1>I nostri feed</h1>
+    <%= link_to 'Home', home_index_path %>
     <%= link_to 'New Feed', new_feed_path, :class => 'new_feed' %>
     <table>
       <thead>

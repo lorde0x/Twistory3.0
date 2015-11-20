@@ -1,12 +1,256 @@
-.loginForm 
+body
 {
-	width: 45%;
-	margin: 6% auto;
-	padding: 1% 0 0 0;
-	background: #f3f3f3;
-	border: 1px solid #fff;
-	border-radius: 5px;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	background-color:black;
+	background-image:url('http://wallpaper-download.net/wallpapers/random-wallpapers-black-background-pattern-wallpaper-34346.jpg');
+}
+
+
+/* BAR */
+
+@media screen and (min-device-width:800px){
+	.bar
+	{
+		min-width:800px;
+		max-width:2200px;
+	}
+}
+
+@media screen and (max-device-width:800px){
+
+	.bar
+	{
+		min-width:1200px;	
+	}
+	
+}
+
+.bar
+{
+	background:#fff;
+	width:100%;
+	position:fixed;
+	display:table;
+	border-bottom:1px solid #f1f1f1;
+	top:0;
+}
+
+.bar img
+{
+	margin:1em 5em 0em 0.6em;
+	float:right;
+	max-width:6.4em;
+}
+
+.no-pointer
+{
+	pointer-events: none;
+}
+
+.bar #bar_text
+{
+	float:left;
+	margin:15px auto 15px 1em;
+	font-size:3em;
+	font-weight:400;
+	color: #000;
+	font-family:'Raleway', sans-serif;
+}
+
+.bar #link
+{
+	float:right;
+	padding:1.5em 3em 0 0;
+	font-size:1.6em;
+	color:#696666;
+}
+
+.bar li img
+{
+	vertical-align:top;
+	margin:3px 0 0 0;
+	padding:0 10px 0 0;
+}
+
+#link a 
+{
+	text-decoration:none !important;
+	color:#696666 !important;
+	font-weight:400;
+}
+
+#link ul
+{
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+
+#link li
+{
+	float:left;
+	padding:0em 1em 0em 1em;
+}
+
+#link a
+{
+	color:#696666 !important;
+}
+
+#link a:hover
+{
+	text-decoration:underline !important;
+	color:#959695 !important;
+}
+
+#link a:active
+{
+	text-decoration:underline !important; 
+	color:#D5DBD6 !important;
+}
+
+/* END NAV BAR */
+
+.form_bg
+{
+	border-radius:2px;
+	border:1px color #696666;
+	width:auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10em;
+	display:table;
+	background:#efefef;
+}
+
+.form
+{
+	display:inline;
+	float:left;
+	margin-left:10em;
+	position:relative;
+	width:auto;
+	height:10em;
+	display:table;
+	padding-top:4em;
+	padding-bottom:2em;
+	margin-bottom:10em;
+	padding-right:4em;
+	top:4em;
+	border-right:1px solid #CFCACA;
+}
+
+
+#error_explanation
+{
+	padding:0;
+	margin:0;
+	list-style-type:none;
+	font-family: 'Open sans', sans-serif;
+}
+
+#error_explanation #first_sentence {
+	color:#ED4F0C;
+	font-size:1.2em;
+	text-align:center;
+}
+#error_explanation #error_list {
+	color:#696666;
+	font-size:1em;
+}
+
+#error_explanation ul {
+	padding:0;
+}
+#error_explanation li {
+	font-size:1em;
+	padding:0;
+	text-align:left;
+}
+
+.form ul
+{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+
+.form li
+{
+	cursor: pointer;
+	padding-bottom:1.2em;
+}
+
+.form .field
+{
+	cursor: pointer;
+}
+
+.button
+{
+	position:relative;
+	left:3.5em;
+	background:none;
+	padding:0.5em 2em 0.5em 2em;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	cursor: pointer;
+	border:2px solid #696666;
+}
+
+.button:hover
+{
+	border-color:#698888;
+}
+
+.right_text
+{
+	display:table;
+	position:relative;
+	width:25em;
+	top:4em;
+	margin-left:2em;
+	font-size:1.5em;
+	float:right;
+}
+
+.title
+{
+	font-size:2em;
+	padding-bottom:1em;
+}
+
+.forgotpsw
+{
+	color:#698888;
+	text-decoration:none;
+}
+
+.forgotpsw:hover
+{
+	color:#696666;
+	text-decoration:underline;
+}
+
+.forgotpsw:active
+{
+	color:#BFBABA;
+}
+
+.register
+{
+	color:#D17E5A;
+	text-decoration:none;
+}
+
+.register:hover
+{
+	color:#ED4F0C;
+	text-decoration:underline;
+}
+
+.register:active
+{
+	color:#BFBABA;
+  	text-decoration:underline;
 }

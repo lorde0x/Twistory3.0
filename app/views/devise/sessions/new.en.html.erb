@@ -1,0 +1,72 @@
+<% content_for :head do %>
+	<title>Log in</title>
+<% end %>	
+
+<% content_for :body do %>
+	<!-- START bar -->
+			<div id="home" class="bar" style="font-size:10px;">
+				<div id="link">
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="<%= new_user_session_path %>" name="Hlink">Sign in</a></li>
+							<li><a href="<%= new_user_registration_path %>" name="Hlink">Sign up</a></li>
+							<!<li>
+								<!<%= link_to(home_index_path(language = %w(it))) do %>
+									<!<%= image_tag("IT_flag.png") %> 
+								<!<% end %>
+								<!<%= link_to(home_index_path(language = %w(en))) do %>
+									<!<%= image_tag("UK_flag.png") %>
+								<!<% end %>
+							<!</li>
+						</ul>
+				</div>
+				<span id="bar_text">
+					 The first world war
+				</span>
+			</div>
+		<!-- END bar -->
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+		<div class="form_bg"> 
+			<div class="form">  
+				<ul>  
+					<li>
+						<%= f.email_field :email, autofocus: "true", :class => "field", :placeholder => "E-mail" %>
+					</li>
+		
+					<li>
+						<%= f.password_field :password, :class => "field", :placeholder => " Password" , autocomplete: "off" %>
+					</li>
+				</ul>   
+				<%= f.submit "Sign in", :class => "button" %>
+
+				<p align="left">
+					<% if devise_mapping.rememberable? %>
+						<%= f.check_box :remember_me, :style => "cursor: pointer;" %>
+						<b style="color:#698888;">
+							Keep
+						</b>
+					<% end %>
+				</p>
+			
+				<div style="color:#ED4F0C;font-size:1em;">
+					<% if notice %>
+						<%= notice %>
+					<% end %>
+					<% if alert %>
+						<%= alert %>
+					<% end %>
+				</div>
+			</div>
+		
+			<div class="right_text">
+				<div class="title">
+					Sign in
+				</div>
+				<p>Did you 
+					<%= link_to "forget your password?", new_password_path(resource_name), :class => "forgotpsw"%> Or haven't you an account yet? 
+					<%= link_to "Sign up", new_user_registration_path, :class => "register"%>
+				</p>
+			</div>
+		</div>
+	<% end %>
+<% end %>	
