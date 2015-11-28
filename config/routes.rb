@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	get 'confirmation_page' => 'feeds#confirmation_page'
 	get 'home/index' => 'feeds#home'
 	resources :feeds
 	resources :users, path: '/portal'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
 		end
 	end
 	
-	devise_for :users
+	devise_for :users, :controllers => { registrations: 'registrations' }
 	
 	devise_scope :user do
 		authenticated :user do
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
 			root to: "feeds#index", as: :authenticated_root
 		end
 		unauthenticated do
+			get 'confirmation_page' => 'feeds#confirmation_page'
 			get 'users/sign_in' => 'devise/sessions#new'
 			get '/users' => 'devise/registrations#new'
 			root to: 'feeds#home', as: :unauthenticated_root

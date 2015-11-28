@@ -1,9 +1,15 @@
+require 'google/api_client'
+require 'json'
+
 class FeedsController < ApplicationController
 	before_action :set_feed, only: [:show, :edit, :update, :destroy]
-	before_action :authenticate_user!, except: [:home]
+	before_action :authenticate_user!, except: [:home, :confirmation_page]
 
 	def home
 		@feeds = Feed.all
+	end
+
+	def confirmation_page	
 	end
 
 	def index

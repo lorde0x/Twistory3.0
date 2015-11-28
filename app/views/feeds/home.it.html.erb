@@ -51,10 +51,10 @@
 							<li><a href="<%= new_user_session_path %>" name="Hlink">Accedi</a></li>
 							<li><a href="<%= new_user_registration_path %>" name="Hlink">Iscriviti</a></li>
 							<li>
-								<%= link_to(home_index_path(language = %w(it))) do %>
+								<%= link_to(home_index_path(:locale=>'it')) do %>
 									<%= image_tag("IT_flag.png") %> 
 								<% end %>
-								<%= link_to(home_index_path(language = %w(en))) do %>
+								<%= link_to(home_index_path(:locale=>'en')) do %>
 									<%= image_tag("UK_flag.png") %>
 								<% end %>
 							</li>
@@ -69,9 +69,9 @@
 			<section id="first">
 				<div style="display:table;">
 					<div class="table">
-						<div id="first_left_text">
+						<h1 id="first_left_text">
 							Benvenuti su Ragazzidel99.it
-						</div>
+						</h1>
 						<div id="first_left_text_und">
 							La Grande Guerra
 						</div>

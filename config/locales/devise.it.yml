@@ -2,7 +2,7 @@ it:
   devise:
     confirmations:
       confirmed: Il tuo account è stato correttamente confermato. Ora sei collegato.
-      send_instructions: Riceverai un messaggio email con le istruzioni per confermare il tuo account entro qualche minuto.
+      send_instructions: Grazie per la registrazione. Dovresti ricevere presto l'email per la conferma della tua email. Controlla la cartella spam se non la trovi nella cartella di posta in entrata.
       send_paranoid_instructions: Se la tua e-mail esiste nel nostro database, riceverai un messaggio email con le istruzioni per confermare il tuo account entro qualche minuto.
     failure:
       already_authenticated: Hai già effettuato l'accesso.

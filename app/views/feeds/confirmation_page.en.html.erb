@@ -1,0 +1,28 @@
+<% content_for :head do %>
+	<title>Confirmation page</title>
+<% end %>	
+
+<% content_for :body do %>
+	<!-- START bar -->
+			<div id="home" class="bar" style="font-size:10px;">
+				<div id="link">
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="<%= new_user_session_path %>" name="Hlink">Sign in</a></li>
+							<li><a href="<%= new_user_registration_path %>" name="Hlink">Sign up</a></li>
+							<li>
+								<%= link_to(confirmation_page_path(:locale=>'it')) do %>
+									<%= image_tag("IT_flag.png") %> 
+								<% end %>
+								<%= link_to(confirmation_page_path(:locale=>'en')) do %>
+									<%= image_tag("UK_flag.png") %>
+								<% end %>
+							</li>
+						</ul>
+				</div>
+				<span id="bar_text">
+					 The first world war
+				</span>
+			</div>
+		<!-- END bar -->
+<% end %>	

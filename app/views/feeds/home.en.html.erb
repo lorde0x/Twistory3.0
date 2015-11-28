@@ -51,6 +51,13 @@
 							<li><a href="<%= new_user_session_path %>" name="Hlink">Sign in</a></li>
 							<li><a href="<%= new_user_registration_path %>" name="Hlink">Sign up</a></li>
 							<li>
+								<%= link_to(home_index_path(:locale=>'it')) do %>
+									<%= image_tag("IT_flag.png") %> 
+								<% end %>
+								<%= link_to(home_index_path(:locale=>'en')) do %>
+									<%= image_tag("UK_flag.png") %>
+								<% end %>
+							</li>
 							</li>
 						</ul>
 				</div>
@@ -63,9 +70,9 @@
 			<section id="first">
 				<div style="display:table;">
 					<div class="table">
-						<div id="first_left_text">
-							Wellcome to Ragazzidel99.it
-						</div>
+						<h1 id="first_left_text">
+							Welcome to Ragazzidel99.it
+						</h1>
 						<div id="first_left_text_und">
 							The First World War
 						</div>
@@ -107,7 +114,7 @@
 						<div class="second_single_social" style="padding-right:100px;">
 							<%= image_tag("facebook-icon-128.png") %>
 							<span id="second_text_fb">
-								/TheFirstWorldWarInRealTime
+								/ww1fromitaly
 							</span>
 						</div>
 					</a>
@@ -115,7 +122,7 @@
 						<div class="second_single_social">
 								<%= image_tag("twitter-icon-128.png") %>
 								<span id="second_text_twitter">
-									@TheFirstWorldWar
+									@ww1fromitaly
 								</span>
 						</div>
 					</a>

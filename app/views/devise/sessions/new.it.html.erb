@@ -10,14 +10,14 @@
 							<li><a href="/">Home</a></li>
 							<li><a href="<%= new_user_session_path %>" name="Hlink">Accedi</a></li>
 							<li><a href="<%= new_user_registration_path %>" name="Hlink">Iscriviti</a></li>
-							<!<li>
-								<!<%= link_to(home_index_path(language = %w(it))) do %>
-									<!<%= image_tag("IT_flag.png") %> 
-								<!<% end %>
-								<!<%= link_to(home_index_path(language = %w(en))) do %>
-									<!<%= image_tag("UK_flag.png") %>
-								<!<% end %>
-							<!</li>
+							<li>
+								<%= link_to(new_user_session_path(:locale=>'it')) do %>
+									<%= image_tag("IT_flag.png") %> 
+								<% end %>
+								<%= link_to(new_user_session_path(:locale=>'en')) do %>
+									<%= image_tag("UK_flag.png") %>
+								<% end %>
+							</li>
 						</ul>
 				</div>
 				<span id="bar_text">

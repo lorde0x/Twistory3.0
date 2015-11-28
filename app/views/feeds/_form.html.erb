@@ -23,8 +23,8 @@
     <%= f.text_field :text_eng %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+    <%= f.label :date, :minute_step => 15 %><br>
+    <%= f.datetime_select :date, :minute_step => 15 %>
   </div>
   <div class="field">
 	<%= f.file_field :image %>
