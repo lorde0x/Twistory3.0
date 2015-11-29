@@ -16,7 +16,8 @@ devise:
   development:
     mailer_sender: twittwar95@gmail.com
   production:
-    mailer_sender: info@ragazzidel99.it
+    mailer_sender: info@ragazzidel99.it # When configure email address remember to change accordingly 
+    #with your credential app/mailers/application_mailer.rb
 
 twitter:
   development:

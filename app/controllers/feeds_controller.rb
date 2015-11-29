@@ -4,6 +4,7 @@ require 'json'
 class FeedsController < ApplicationController
 	before_action :set_feed, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:home, :confirmation_page]
+	around_filter :user_time_zone, :if => :current_user
 
 	def home
 		@feeds = Feed.all
@@ -147,5 +148,13 @@ class FeedsController < ApplicationController
 
 	def feed_params
 		params.require(:feed).permit(:user_id, :text_ita, :text_eng, :image, :date, :publishing)
+	end
+
+	def user_time_zone(&block)
+		if params[:locale] == "en"
+			Time.use_zone("GMT", &block)
+		else
+			Time.use_zone("CET", &block)
+		end
 	end
 end
